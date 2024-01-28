@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madlibs Form</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    <h1>Madlibs</h1>
+    <form id="madlibsForm" action="/story" onsubmit="return validateForm()">
+        {% for prompt in prompts %}
+            <p>{{prompt}}:
+            <input type="text" name="{{prompt}}" id="{{prompt}}" required>
+            </p>
+        {% endfor %}
+        <input type="hidden" name="story_id" value="{{story_id}}">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
